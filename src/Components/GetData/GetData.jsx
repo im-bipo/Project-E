@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import { courseList } from '../../assets/db/courseList'
+import { courseDetails } from '../../assets/db/courseDetails'
 import MarkSheet from './MarkSheet'
-
-// destrucutring Course list 
-
-
-
+import InputBox from './InputBox'
 
 const GetData = () => {
     const [userDetails, setUserDetails] = useState({
@@ -16,104 +12,99 @@ const GetData = () => {
     })
 
 
-    // console.log(userDetails)
-  
+    console.log(userDetails)
 
-    // console.log()
-
-    
     //update users date
     const handleChange = e => {
         const name = e.target.name;
         const value = e.target.value;
-        setUserDetails({ ...userDetails, [name]: value })
+
+        switch (name) {
+
+            case 'board': {
+                if (userDetails.facultie !== '') {
+                    setUserDetails({ ...userDetails, board: value, facultie: '', course: '' })
+                    break;
+                }
+            }
+            case 'facultie': {
+                if (userDetails.course !== '') {
+                    setUserDetails({ ...userDetails, facultie: value, course: '', })
+                    break;
+                }
+            }
+            default:
+                {
+                    setUserDetails({ ...userDetails, [name]: value })
+                    break;
+                }
+        }
+
     }
+
     
-    const changeBoard = e => {
-        const value = e.target.value;
-        if (userDetails.facultie !== ''){
-            setUserDetails({...userDetails,board : value, facultie: '',course: ''})
-        }
-        else{
-            handleChange(e) 
-        }
-    }
-    const changeFacultie = e => {
-        const value = e.target.value;
-        if (userDetails.course !== ''){
-            setUserDetails({...userDetails,facultie : value, course: '',})
-        }
-        else{
-            handleChange(e)
-        }
-    }
+    //Board Lists
+    const boardLists = Object.keys(courseDetails)
 
-
-
-    //conditional rendering of faculties lists
+    //generating faculties list based on board selection
     let facultieLists;
-    if(userDetails.board !== ''){
-        facultieLists = Object.keys(courseList[userDetails.board]);
+    if (userDetails.board !== '') {
+        facultieLists = Object.keys(courseDetails[userDetails.board]);
     }
-    else{
+    else {
         facultieLists = [];
     }
 
 
-    //conditional rendering of Course lists
-    let courseTitle;
-    if(userDetails.facultie !== ''){
-        courseTitle = Object.keys (courseList[userDetails.board][userDetails.facultie]);
+    //generating courseDetails list based on faculties selection
+    let courseList;
+    if (userDetails.facultie !== '') {
+        courseList = Object.keys(courseDetails[userDetails.board][userDetails.facultie]);
     }
-    else{
-        courseTitle = [];
+    else {
+        courseList = [];
     }
-    // console.log(courseTitle)
 
 
     return (
-        <div className='flex flex-col space-y-5'>
+        <section className='flex flex-col space-y-5'>
+
             <label htmlFor="userName">Full Name: </label>
             <input name='userName' type="text" onChange={handleChange} className='bg-gray-500 mx-4 rounded-sm px-2' />
 
 
 
-            <label htmlFor="boardName">Board: </label>
-            <select onChange={changeBoard} name='board' defaultValue='' className='bg-gray-500 mx-4 rounded-sm px-2' >
-                <option value='' disabled >Select Board</option>
-                {Object.keys(courseList).map((item) => (
-                    <option key={item} value={item}>{item}</option>
-                ))}
-            </select>
+            <InputBox
+                lable='Board: '
+                handleChange={handleChange}
+                name='board'
+                value= {userDetails.board}
+                list={boardLists}
 
+            />
+            <InputBox
+                lable='Faculties: '
+                handleChange={handleChange}
+                name = 'facultie'
+                value = {userDetails.facultie}
+                list={facultieLists}
 
+            />
 
-            <label htmlFor="FacultiesList">Faculties</label>
-            <select onChange={changeFacultie} name='facultie' value={userDetails.facultie} className='bg-gray-500 mx-4 rounded-sm px-2' >
-                <option value='' disabled >Select Faculties</option>
-                {facultieLists.map((item) => (
-                    <option key={item} value={item}>
-                        {item}
-                    </option>
-                ))}
-            </select>
+            <InputBox
+                lable='Course: '
+                handleChange={handleChange}
+                name = 'course'
+                value = {userDetails.course}
+                list={courseList}
 
+            />
 
+            <MarkSheet
+                userDetails={userDetails}
+            />
 
-            <label htmlFor="FacultiesList">Course</label>
-            <select onChange={handleChange} name='course' value={userDetails.course} className='bg-gray-500 mx-4 rounded-sm px-2' >
-                <option value='' disabled >Select Course</option>
-                {courseTitle.map((item) => (
-                    <option key={item} value={item}>
-                        {item}
-                    </option>
-                ))}
-            </select>
-                    <MarkSheet
-                    userDetails={userDetails}
-                    />
-
-        </div>
+        </section>
     )
 }
 
