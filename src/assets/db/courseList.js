@@ -1,33 +1,32 @@
 
-const compulsorySubject = ['English','Nepali']
 
 export const courseList = {
     NEB : {
         Science : {
-            'Mathematics Group' : compulsorySubject.concat(['Mathematics','Physics','Chemistry','Computer']),
-            'Biology Group' : compulsorySubject.concat(['Mathematics','Physics','Chemistry','Biology']),
-            'Biology (With out Mathematics)' : compulsorySubject.concat(['Social','Physics','Chemistry','Biology']),
+            'Mathematics Group' : ['English','Nepali','Mathematics','Physics','Chemistry','Computer'],
+            'Biology Group' : ['English','Nepali','Mathematics','Physics','Chemistry','Biology'],
+            'Biology (With out Mathematics)' : ['English','Nepali','Social','Physics','Chemistry','Biology'],
         },
         Management : {
-            'Management Group 1' : compulsorySubject.concat(['Mathematics','Account','Economic','Computer']),
-            'Management Group 2' : compulsorySubject.concat(['Mathematics','Account','Economic','Biology']),
-            'Management (With out Mathematics)' : compulsorySubject.concat(['Social','Economic','Account','Finance']),
+            'Management Group 1' : ['English','Nepali','Mathematics','Account','Economic','Computer'],
+            'Management Group 2' : ['English','Nepali','Mathematics','Account','Economic','Biology'],
+            'Management (With out Mathematics)' : ['English','Nepali','Social','Economic','Account','Finance'],
         },
         LAW : {
-            'LAW Subject list' : compulsorySubject.concat(['One','Two','Three','Four']),
+            'LAW Subject list' : ['English','Nepali','One','Two','Three','Four'],
         }
     },
     CTEVT : {
         HA : {
-            'HA Subject list' : compulsorySubject.concat(['One','Two','Three','Four']),
+            'HA Subject list' : ['English','Nepali','One','Two','Three','Four'],
         },
         GA : {
-            'GA Subject list' : compulsorySubject.concat(['One','Two','Three','Four']),
+            'GA Subject list' : ['English','Nepali','One','Two','Three','Four'],
         }
     },
     UPSC : {
         PA : {
-            'PA Subject list' : compulsorySubject.concat(['One','Two','Three','Four']),
+            'PA Subject list' : ['English','Nepali','One','Two','Three','Four'],
         }
     },
 }

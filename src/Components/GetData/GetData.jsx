@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { courseList } from '../../assets/db/courseList'
+import MarkSheet from './MarkSheet'
 
 // destrucutring Course list 
 
@@ -14,7 +15,10 @@ const GetData = () => {
         course: '',
     })
 
-    console.log(userDetails)
+
+    // console.log(userDetails)
+  
+
     // console.log()
 
     
@@ -105,8 +109,9 @@ const GetData = () => {
                     </option>
                 ))}
             </select>
-
-
+                    <MarkSheet
+                    userDetails={userDetails}
+                    />
 
         </div>
     )
