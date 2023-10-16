@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import GetData from './Components/GetData/GetData'
 import ShowList from './Components/ShowResult/ShowList'
 
 const App = () => {
+  const [UserDetails,setUserDetails] = useState([])
+  const [MarkSheet,setMarksheet] = useState([])
+
+  const updateData = (UserDtls,GradeSheet) =>{
+    setUserDetails(UserDtls)
+    setMarksheet(GradeSheet)
+  }
+console.log(UserDetails,MarkSheet)
   return (
     <>
-    <header className='text-center'>
+    <header className='text-center my-3'>
       this is header 
-      <nav>
-        this is nav
-      </nav>
-    </header>
-    <main className='text-center'>
-      this is main
-    </main>
-    <GetData/>
+      </header>
+    <GetData
+    SendData = {updateData}
+    SendMarksheet = {setMarksheet}
+    />
+
     {/* <ShowList/> */}
     </>
   )

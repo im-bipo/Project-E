@@ -17,6 +17,14 @@ export const courseDetails = {
         "Chemistry",
         "Biology",
       ],
+      "Test Group": [
+        "English",
+        "Nepali",
+        "EPH",
+        "WOW",
+        "Chemistry",
+        "Health",
+      ],
       "Biology (With out Mathematics)": [
         "English",
         "Nepali",

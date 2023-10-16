@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Subject from './Subject'
 import { defaultSubject } from '../../assets/db/db'
-const MarkSheet = ({subjectList}) => {
+const MarkSheet = ({subjectList,sendReportCard}) => {
 
 useEffect(() => {
   setGrade(subjectList)
@@ -11,11 +11,11 @@ useEffect(() => {
         const name = e.target.name
         const value = e.target.value
         setGrade({...gradeSheet, [name] : value})
+        sendReportCard(gradeSheet)
     }
     const [gradeSheet,setGrade] = useState(subjectList)
-    console.log('gradeSheet', gradeSheet)
     return (
-        <form id='markSheet'>
+        <div id='markSheet'>
             <div className='flex space-x-5 flex-wrap'>
 
                 {
@@ -32,7 +32,7 @@ useEffect(() => {
                     }
                 
             </div>
-        </form>
+        </div>
     )
 }
 

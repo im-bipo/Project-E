@@ -5,62 +5,71 @@ import MarkSheet from './MarkSheet'
 import InputBox from './InputBox'
 
 const arrayListing = list => {
-    let SubjectObj = list.reduce((obj,current) => {
+    let SubjectObj = list.reduce((obj, current) => {
         obj[current] = ''
         return obj
     }, {})
-    return SubjectObj   
+    return SubjectObj
 }
 
-const GetData = () => {
-    const [GradeSheet,setGradeSheet] = useState(arrayListing(defaultSubject))
+const GetData = ({SendData}) => {
+    const [SubjectList, setSubjectList] = useState(arrayListing(defaultSubject))
+    const [ReportCard,setReportCard] = useState([])
     const [userDetails, setUserDetails] = useState({
         userName: '',
         board: '',
         facultie: '',
         course: '',
     })
-console.log('User Details: ',userDetails);
+
+        
+            const handleSubmit = (e) => {
+                e.preventDefault()
+                SendData(userDetails,ReportCard)
+            }
+
+
     //update users date
     const handleChange = e => {
         const name = e.target.name;
         const value = e.target.value;
+
         
-        console.log("NAME  :", name);
         switch (name) {
             case 'board': {
                 if (userDetails.facultie !== '') {
                     setUserDetails({ ...userDetails, board: value, facultie: '', course: '' })
-                    setGradeSheet(arrayListing(defaultSubject))
-                    console.log("board called");
+                    setSubjectList(arrayListing(defaultSubject))
                 }
                 else
-                setUserDetails({ ...userDetails, [name]: value })
+                    setUserDetails({ ...userDetails, [name]: value })
 
                 break;
             }
             case 'facultie': {
                 if (userDetails.course !== '') {
                     setUserDetails({ ...userDetails, facultie: value, course: '', })
-                    setGradeSheet(arrayListing(defaultSubject))
-                    console.log("faculties called");
+                    setSubjectList(arrayListing(defaultSubject))
                 }
                 else
+                    setUserDetails({ ...userDetails, [name]: value })
+
+                break;
+            }
+            case 'course': {
+                setUserDetails({ ...userDetails, course: value })
+
+                setSubjectList(arrayListing(courseDetails[userDetails.board][userDetails.facultie][value]))
+                break;
+            }
+            default: {
                 setUserDetails({ ...userDetails, [name]: value })
-
                 break;
             }
-            case 'course': {                
-                setUserDetails({ ...userDetails, course: value})
-
-                setGradeSheet(arrayListing(courseDetails[userDetails.board][userDetails.facultie][value]))
-                break;
-                }
-            }
-            
         }
-        
-        // console.log("Subject of user: ", GradeSheet);
+
+    }
+
 
     //Board Lists
     const boardLists = Object.keys(courseDetails)
@@ -84,46 +93,51 @@ console.log('User Details: ',userDetails);
         courseList = [];
     }
 
-
     return (
         <section className='flex flex-col space-y-5'>
 
-            <label htmlFor="userName">Full Name: </label>
-            <input name='userName' type="text" onChange={handleChange} className='bg-gray-500 mx-4 rounded-sm px-2' />
+            <form onSubmit={handleSubmit}> 
+
+                <label htmlFor="userName">Full Name: </label>
+                <input name='userName' placeholder='Ram  Bahadur Thapa' type="text" onChange={handleChange} required className='bg-gray-500 mx-4 rounded-sm px-2' />
 
 
 
-            <InputBox
-                lable='Board: '
-                handleChange={handleChange}
-                name='board'
-                value= {userDetails.board}
-                list={boardLists}
+                <InputBox
+                    lable='Board: '
+                    handleChange={handleChange}
+                    name='board'
+                    value={userDetails.board}
+                    list={boardLists}
 
-            />
-            <InputBox
-                lable='Faculties: '
-                handleChange={handleChange}
-                name = 'facultie'
-                value = {userDetails.facultie}
-                list={facultieLists}
+                />
+                <InputBox
+                    lable='Faculties: '
+                    handleChange={handleChange}
+                    name='facultie'
+                    value={userDetails.facultie}
+                    list={facultieLists}
 
-            />
+                />
 
-            <InputBox
-                lable='Course: '
-                handleChange={handleChange}
-                name = 'course'
-                value = {userDetails.course}
-                list={courseList}
+                <InputBox
+                    lable='Course: '
+                    handleChange={handleChange}
+                    name='course'
+                    value={userDetails.course}
+                    list={courseList}
 
-            />
+                />
 
-            <MarkSheet
-                subjectList = {GradeSheet}
-            />
+                <MarkSheet
+                    subjectList={SubjectList}
+                    sendReportCard = {setReportCard}
+                />
 
+            <input type="submit" className='p-3 bg-gray-500 m-2'/>        
+            </form>
         </section>
+
     )
 }
 

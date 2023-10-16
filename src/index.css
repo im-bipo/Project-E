@@ -5,4 +5,5 @@
 *{
     background-color: rgb(39, 39, 39);
     color: rgb(241, 241, 241);
+    scroll-behavior: smooth;
 }

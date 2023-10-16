@@ -3,7 +3,7 @@ import { gradeScore } from '../../assets/db/db'
 
 const Subject = ({name,changeHandler,value, isDisable}) => {
     const change = e => {
-        changeHandler(e)
+    changeHandler(e)
     }
     return (
         <>
@@ -14,6 +14,7 @@ const Subject = ({name,changeHandler,value, isDisable}) => {
                     disabled={isDisable}
                     onChange={change} name={name}
                     value={value}
+                    required
                     className='bg-gray-500 mx-4 rounded-sm px-2' >
 
                     <option value='' disabled >Select Grade</option>
