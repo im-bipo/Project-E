@@ -1,48 +1,67 @@
 import React, { useState } from 'react'
 import { courseDetails } from '../../assets/db/courseDetails'
+import { defaultSubject } from '../../assets/db/db'
 import MarkSheet from './MarkSheet'
 import InputBox from './InputBox'
 
+const arrayListing = list => {
+    let SubjectObj = list.reduce((obj,current) => {
+        obj[current] = ''
+        return obj
+    }, {})
+    return SubjectObj   
+}
+
 const GetData = () => {
+    const [GradeSheet,setGradeSheet] = useState(arrayListing(defaultSubject))
     const [userDetails, setUserDetails] = useState({
         userName: '',
         board: '',
         facultie: '',
         course: '',
     })
-
-
-    console.log(userDetails)
-
+console.log('User Details: ',userDetails);
     //update users date
     const handleChange = e => {
         const name = e.target.name;
         const value = e.target.value;
-
+        
+        console.log("NAME  :", name);
         switch (name) {
-
             case 'board': {
                 if (userDetails.facultie !== '') {
                     setUserDetails({ ...userDetails, board: value, facultie: '', course: '' })
-                    break;
+                    setGradeSheet(arrayListing(defaultSubject))
+                    console.log("board called");
                 }
+                else
+                setUserDetails({ ...userDetails, [name]: value })
+
+                break;
             }
             case 'facultie': {
                 if (userDetails.course !== '') {
                     setUserDetails({ ...userDetails, facultie: value, course: '', })
-                    break;
+                    setGradeSheet(arrayListing(defaultSubject))
+                    console.log("faculties called");
+                }
+                else
+                setUserDetails({ ...userDetails, [name]: value })
+
+                break;
+            }
+            case 'course': {                
+                setUserDetails({ ...userDetails, course: value})
+
+                setGradeSheet(arrayListing(courseDetails[userDetails.board][userDetails.facultie][value]))
+                break;
                 }
             }
-            default:
-                {
-                    setUserDetails({ ...userDetails, [name]: value })
-                    break;
-                }
+            
         }
+        
+        // console.log("Subject of user: ", GradeSheet);
 
-    }
-
-    
     //Board Lists
     const boardLists = Object.keys(courseDetails)
 
@@ -101,7 +120,7 @@ const GetData = () => {
             />
 
             <MarkSheet
-                userDetails={userDetails}
+                subjectList = {GradeSheet}
             />
 
         </section>
