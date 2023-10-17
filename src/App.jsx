@@ -21,7 +21,10 @@ console.log(UserDetails,MarkSheet)
     SendMarksheet = {setMarksheet}
     />
 
-    {/* <ShowList/> */}
+    <ShowList
+    userDetails={UserDetails}
+    markSheet = {MarkSheet}
+    />
     </>
   )
 }

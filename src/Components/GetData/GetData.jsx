@@ -83,7 +83,6 @@ const GetData = ({SendData}) => {
         facultieLists = [];
     }
 
-
     //generating courseDetails list based on faculties selection
     let courseList;
     if (userDetails.facultie !== '') {

@@ -64,6 +64,14 @@ export const courseDetails = {
       "LAW Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
     },
   },
+  HISSAN: {
+    'Science H': {
+      "SH Subject list": ["English", "Nepali", "One", "Two", "Three", "opt"],
+    },
+    GA: {
+      "GA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
+    },
+  },
   CTEVT: {
     HA: {
       "HA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
