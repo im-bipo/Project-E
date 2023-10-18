@@ -1,15 +1,14 @@
 import React from 'react'
 import Subject from '../GetData/Subject'
 import img from '../../assets/image/rishidhamala-cangrajuletun.gif'
+import CheckEligibility from '../CheckEligibility/CheckEligibility'
 const ShowList = 
 (
 {userDetails,
 markSheet}
 ) => {
-  console.log("subject are: ",markSheet)
 
   Object.keys(markSheet).map((item) => {
-    console.log(`${item} marks: `,markSheet[item])
   }) 
 
   if (Object.values(markSheet).includes('NG')){
@@ -21,6 +20,7 @@ markSheet}
       </>
     )
   }
+  
 if (Object.keys(markSheet).length === 0){
   return (
     <div>
@@ -31,6 +31,11 @@ if (Object.keys(markSheet).length === 0){
   return(
     <>
   You are eligible for: 
+  <CheckEligibility 
+  userDetails={userDetails}
+  markSheet={markSheet}
+  />
+  
   </>
     )
 }

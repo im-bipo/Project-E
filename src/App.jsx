@@ -10,15 +10,14 @@ const App = () => {
     setUserDetails(UserDtls)
     setMarksheet(GradeSheet)
   }
-console.log(UserDetails,MarkSheet)
   return (
     <>
     <header className='text-center my-3'>
       this is header 
       </header>
+
     <GetData
     SendData = {updateData}
-    SendMarksheet = {setMarksheet}
     />
 
     <ShowList

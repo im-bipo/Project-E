@@ -3,11 +3,11 @@ export const courseDetails = {
     Science: {
       "Mathematics Group": [
         "English",
-        "Nepali",
-        "Mathematics",
-        "Physics",
-        "Chemistry",
-        "Computer",
+        // "Nepali",
+        // "Mathematics",
+        // "Physics",
+        // "Chemistry",
+        // "Computer",
       ],
       "Biology Group": [
         "English",
@@ -64,12 +64,50 @@ export const courseDetails = {
       "LAW Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
     },
   },
-  HISSAN: {
-    'Science H': {
-      "SH Subject list": ["English", "Nepali", "One", "Two", "Three", "opt"],
+  'A-Level': {
+    'SCIENCE': {
+      "ENGINEERING": 
+      ["English General Paper", 
+      "Physics", "Chemistry", 
+      "Mathematics"
+      ],
+
+      "ENGINEERING (Additonal CS)": 
+      ["English General Paper", "Physics",
+      "Chemistry", 
+      "Mathematics",
+      "Computer Science"
+       ],
+
+      "MEDICAL": 
+      ["English General Paper", 
+      "Physics", "Chemistry", 
+      "Biology"
+      ],
+       
+      "MEDICAL (Additional Mathematics)": [
+        "English General Paper", 
+        "Physics", 
+        "Chemistry", 
+        "Biology",
+        "Mathematics"
+      ],
     },
-    GA: {
-      "GA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
+    'NON-SCIENCE': {
+      "MANAGEMENT": 
+      ["English General Paper", 
+      "Accounting", 
+      "Economics", 
+      "Business Studies"
+      ],
+
+
+      "HUMANITIES": 
+      ["English General Paper", 
+      "Economics", 
+      "Sociology",
+      "Psychology", 
+      ],
     },
   },
   CTEVT: {
@@ -80,13 +118,7 @@ export const courseDetails = {
       "GA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
     },
   },
-  UPSC: {
-    PA: {
-      "PA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
-    },
-  },
 };
 
 export const boardLists = Object.keys(courseDetails);
 
-// console.log(boardLists)

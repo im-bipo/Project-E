@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Subject from './Subject'
 import { defaultSubject } from '../../assets/db/db'
-const MarkSheet = ({ subjectList, sendReportCard }) => {
+const MarkSheet = ({ boardName, subjectList, sendReportCard }) => {
 
     useEffect(() => {
         setGrade(subjectList)
@@ -31,6 +31,7 @@ const MarkSheet = ({ subjectList, sendReportCard }) => {
                     Object.keys(gradeSheet).map((subject, index) => (
                         <Subject
                             key={index}
+                            boardName={boardName}
                             changeHandler={changeHandler}
                             name={subject}
                             value={gradeSheet[subject]}
