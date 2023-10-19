@@ -3,11 +3,11 @@ export const courseDetails = {
     Science: {
       "Mathematics Group": [
         "English",
-        // "Nepali",
-        // "Mathematics",
-        // "Physics",
-        // "Chemistry",
-        // "Computer",
+        "Nepali",
+        "Mathematics",
+        "Physics",
+        "Chemistry",
+        "Computer",
       ],
       "Biology Group": [
         "English",

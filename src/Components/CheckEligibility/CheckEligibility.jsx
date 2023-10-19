@@ -1,40 +1,56 @@
 import React, { useState } from "react";
 
 const courseCriteria = {
-  'CSIT': {
-    board : 'NEB',
-    faculty: 'Science',
+  CSIT: {
+    board: "NEB",
+    faculty: "Science",
     // minGrade: 'C',
-    requiredSubjects: ['Mathematics']
+    requiredSubjects: ["Mathematics"],
   },
-  'MBBS': {
-    board : 'NEB',
-    faculty: 'Science',
+  BSc: {
+    board: "NEB",
+    faculty: "Science",
     // minGrade: 'C',
-    requiredSubjects: ['Biology']
+    requiredSubjects: [],
   },
-  'BBS': {
-    board : 'NEB',
-    faculty: 'Management',
+  MBBS: {
+    board: "NEB",
+    faculty: "Science",
     // minGrade: 'C',
-    requiredSubjects: ['Biology']
-  }
+    requiredSubjects: ["Biology"],
+  },
+  BBS: {
+    board: "NEB",
+    faculty: "Management",
+    // minGrade: 'C',
+    requiredSubjects: [],
+  },
 };
 
 const CheckEligibility = ({ userDetails, markSheet }) => {
-  let CheckList = []
+  let CheckList = [];
 
   const { userName, board, facultie, course } = userDetails;
 
-Object.keys(courseCriteria).map((course,index) => {
-    if (courseCriteria[course].board == board && courseCriteria[course].faculty==facultie){
-      CheckList = CheckList.concat(course)
-    } 
-   
-})
-
-
-  console.log('Checked subject: ',CheckList);
+  Object.keys(courseCriteria).map((course) => {
+    if (
+      courseCriteria[course].board == board && //chekc board
+      courseCriteria[course].faculty == facultie &&   //chek faculty
+      (courseCriteria[course].requiredSubjects.length === 0 ||  //check required subject 
+        courseCriteria[course].requiredSubjects.some((sub) =>
+          Object.keys(markSheet).includes(sub)
+        ))
+    ) {
+      CheckList = CheckList.concat(course);
+    }
+  });
+  return (
+    <>
+      {CheckList.map((item, index) => (
+        <div key={index}>{item}</div>
+      ))}
+    </>
+  );
 };
 
 export default CheckEligibility;

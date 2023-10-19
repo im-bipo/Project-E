@@ -19,8 +19,8 @@ const GetData = ({ SendData }) => {
 
   const [userDetails, setUserDetails] = useState({
     userName: "",
-    board: "NEB",
-    facultie: "Science",
+    board: "",
+    facultie: "",
     course: "",
   });
 
@@ -103,7 +103,7 @@ const GetData = ({ SendData }) => {
           placeholder="Ram  Bahadur Thapa"
           type="text"
           onChange={handleChange}
-        //   required
+          required
           className="bg-gray-500 mx-4 rounded-sm px-2"
         />
 
