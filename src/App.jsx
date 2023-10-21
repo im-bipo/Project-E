@@ -19,7 +19,7 @@ const App = () => {
   return (
     <>
       <header className="h-20 bg-[#f5f5f5]">
-        <nav className="fixed bg-[#f5f5f5] flex items-center w-[100vw] h-20 border-b-2">
+        <nav className="fixed bg-[#f5f5f5] flex items-center w-[100vw] h-20 border-b-2 z-10">
           <div className="pl-10 w-1/2">Logo</div>
           <div className="w-1/2 text-[1.1rem] flex justify-end">
             <a href="/" className="text-blue-800 mr-4">

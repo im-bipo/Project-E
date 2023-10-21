@@ -27,7 +27,7 @@ const CheckEligibility = ({ userDetails, markSheet }) => {
 
   return (
     <>
-    <div className='flex justify-evenly  p-5'>
+    <div className='flex justify-evenly flex-wrap gap-5 p-5'>
 
       {CheckList.map((item, index) => (
         <div

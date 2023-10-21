@@ -25,7 +25,7 @@ if (Object.keys(markSheet).length === 0){
   return (
     <div>
       <h2 className="font-medium text-xl ctmUnderline block w-fit my-4 mx-auto">Fill the details </h2>
-      <div className='flex justify-evenly p-5'>
+      <div className='flex justify-evenly flex-wrap gap-5 p-5'>
       {Array(4).fill().map((_, i) => (
           <div key={i} className='w-[15rem] h-[15rem] rounded-lg bg-blue-950 animate-pulse'></div>
         ))}
