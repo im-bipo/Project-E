@@ -24,18 +24,24 @@ markSheet}
 if (Object.keys(markSheet).length === 0){
   return (
     <div>
-  Fill the form to chck the availibility of course
+      <h2 className="font-medium text-xl ctmUnderline block w-fit my-4 mx-auto">Fill the details </h2>
+      <div className='flex justify-evenly p-5'>
+      {Array(4).fill().map((_, i) => (
+          <div key={i} className='w-[15rem] h-[15rem] rounded-lg bg-blue-950 animate-pulse'></div>
+        ))}
+      </div>
       </div>
     )
   }
-  console.log(markSheet);
   return(
     <>
-  You are eligible for: 
+    <div className='w-full'>
+      <h2 className="font-medium text-xl ctmUnderline block w-fit my-4 mx-auto">{userDetails.userName} you are eligible for </h2>
   <CheckEligibility 
   userDetails={userDetails}
   markSheet={markSheet}
   />
+  </div>
   
   </>
     )

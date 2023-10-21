@@ -96,7 +96,7 @@ const GetData = ({ SendData }) => {
 
   return (
     <section className=" bg-[#ffffff] pt-20 flex m-auto flex-col  max-w-[30rem] md:max-w-[unset]">
-      <h2 className="font-medium text-xl text-center ctmUnderline">Fill the form</h2>
+      <h2 className="font-medium text-xl ctmUnderline inline-block w-fit m-auto ">Let's check it</h2>
       <form onSubmit={handleSubmit} className=" flex flex-wrap flex-col p-10">
         <div className="md:flex md:flex-wrap">
           <div className="md:w-1/2 md:flex justify-center items-center">
@@ -144,7 +144,8 @@ const GetData = ({ SendData }) => {
           sendReportCard={setReportCard}
         />
 
-        <input type="submit" className="p-3 bg-gray-500 m-2" />
+        <input type="submit" className="p-2 bg-gray-700 text-white w-40 rounded-lg my-2 m-auto" />
+        <p className=" text-center text-sm text-gray-600">By submitting i accept all terms and condition</p>
       </form>
     </section>
   );

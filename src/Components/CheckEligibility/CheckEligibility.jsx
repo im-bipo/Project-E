@@ -27,14 +27,16 @@ const CheckEligibility = ({ userDetails, markSheet }) => {
 
   return (
     <>
+    <div className='flex justify-evenly  p-5'>
+
       {CheckList.map((item, index) => (
         <div
-          key={index}
-          className="w-[80%] h-20 bg-gray-200 rounded-md m-auto my-5 flex justify-center items-center"
-        >
+        key={index}
+        className='w-[15rem] h-[15rem] rounded-lg bg-blue-950 text-white flex items-end p-4 font-medium text-2xl'>
           {item}
-        </div>
+          </div>
       ))}
+      </div>
     </>
   );
 };

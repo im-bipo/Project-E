@@ -6,11 +6,16 @@ import studentPic from "./assets/image/students.png";
 const App = () => {
   const [UserDetails, setUserDetails] = useState([]);
   const [MarkSheet, setMarksheet] = useState([]);
+  const [eligibleList,SetEligibleList] = useState([])
 
   const updateData = (UserDtls, GradeSheet) => {
     setUserDetails(UserDtls);
     setMarksheet(GradeSheet);
   };
+
+  const updateEligibility = newDate => {
+
+  }
   return (
     <>
       <header className="h-20 bg-[#f5f5f5]">
@@ -53,7 +58,16 @@ const App = () => {
 
       <GetData SendData={updateData} />
 
-      <ShowList userDetails={UserDetails} markSheet={MarkSheet} />
+      <ShowList 
+      userDetails={UserDetails} 
+      markSheet={MarkSheet} 
+      eligibleList={eligibleList}
+      SetEligibleList={SetEligibleList}
+      
+      />
+      <footer className="h-40 bg-gray-800 text-white text-center p-5">
+        This is the footer
+      </footer>
     </>
   );
 };
