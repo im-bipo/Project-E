@@ -11,7 +11,7 @@ markSheet}
   Object.keys(markSheet).map((item) => {
   }) 
 
-  if (Object.values(markSheet).includes('NG')){
+  if (Object.values(markSheet).includes(8)){
     return(
       <>
       <div>
@@ -28,6 +28,7 @@ if (Object.keys(markSheet).length === 0){
       </div>
     )
   }
+  console.log(markSheet);
   return(
     <>
   You are eligible for: 

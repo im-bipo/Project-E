@@ -95,40 +95,48 @@ const GetData = ({ SendData }) => {
   }
 
   return (
-    <section className="flex flex-col space-y-5">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="userName">Full Name: </label>
-        <input
-          name="userName"
-          placeholder="Ram  Bahadur Thapa"
-          type="text"
-          onChange={handleChange}
-          required
-          className="bg-gray-500 mx-4 rounded-sm px-2"
-        />
+    <section className=" bg-[#ffffff] pt-20 flex m-auto flex-col  max-w-[30rem] md:max-w-[unset]">
+      <h2 className="font-medium text-xl text-center ctmUnderline">Fill the form</h2>
+      <form onSubmit={handleSubmit} className=" flex flex-wrap flex-col p-10">
+        <div className="md:flex md:flex-wrap">
+          <div className="md:w-1/2 md:flex justify-center items-center">
+            <label htmlFor="userName" className="mr-3">
+              Full Name:{" "}
+            </label>
+            <input
+              name="userName"
+              placeholder="Ram Bahadur Thapa"
+              type="text"
+              onChange={handleChange}
+              required
+              autocomplete="off"
+              className="bg-inherit ring-opacity-0 border-gray-800 border-b-2 focus:outline-none  mt-1 mb-4  max-w-[26rem] md:w-[70%]"
+            />
+          </div>
 
-        <InputBox
-          lable="Board: "
-          handleChange={handleChange}
-          name="board"
-          value={userDetails.board}
-          list={boardLists}
-        />
-        <InputBox
-          lable="Faculties: "
-          handleChange={handleChange}
-          name="facultie"
-          value={userDetails.facultie}
-          list={facultieLists}
-        />
+          <InputBox
+            lable="Board: "
+            handleChange={handleChange}
+            name="board"
+            value={userDetails.board}
+            list={boardLists}
+          />
+          <InputBox
+            lable="Faculties: "
+            handleChange={handleChange}
+            name="facultie"
+            value={userDetails.facultie}
+            list={facultieLists}
+          />
 
-        <InputBox
-          lable="Course: "
-          handleChange={handleChange}
-          name="course"
-          value={userDetails.course}
-          list={courseList}
-        />
+          <InputBox
+            lable="Course: "
+            handleChange={handleChange}
+            name="course"
+            value={userDetails.course}
+            list={courseList}
+          />
+        </div>
 
         <MarkSheet
           boardName={userDetails.board}

@@ -23,11 +23,9 @@ const MarkSheet = ({ boardName, subjectList, sendReportCard }) => {
 
 
     return (
-        <div id='markSheet'>
-            <div className='flex space-x-5 flex-wrap'>
-
+        <div id='markSheet' className='border-gray-300 mt-5 border-t-2'>
+            <div className='flex flex-col'>
                 {
-
                     Object.keys(gradeSheet).map((subject, index) => (
                         <Subject
                             key={index}

@@ -23,21 +23,21 @@ const Subject = ({ boardName, name, changeHandler, value, isDisable }) => {
 
   return (
     <>
-      <div className="mt-5">
-        <label htmlFor={name}>{name}</label>
+      <div className="mt-5 flex flex-wrap ">
+        <label htmlFor={name} className="w-1/3 ">{name} : </label>
         <select
           disabled={isDisable}
           onChange={change}
           name={name}
           value={value}
           required
-          className="bg-gray-500 mx-4 rounded-sm px-2"
+          className="bg-[unset] border-gray-800 border-b-2 focus:outline-none w-2/3 "
         >
           <option value="" disabled>
             Select Grade
           </option>
           {gradeList.map((gradeLetter, index) => (
-            <option key={index} value={gradeLetter}>
+            <option key={index} value={index} className="">
               {gradeLetter}
             </option>
           ))}

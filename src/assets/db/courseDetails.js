@@ -17,7 +17,7 @@ export const courseDetails = {
         "Chemistry",
         "Biology",
       ],
-      "Test Group": [
+      "Test Group Test GroupTest GroupTest GroupTest GroupTest GroupTest GroupTest Group": [
         "English",
         "Nepali",
         "EPH",
@@ -65,7 +65,7 @@ export const courseDetails = {
     },
   },
   'A-Level': {
-    'SCIENCE': {
+    Science : {
       "ENGINEERING": 
       ["English General Paper", 
       "Physics", "Chemistry", 
@@ -93,7 +93,7 @@ export const courseDetails = {
         "Mathematics"
       ],
     },
-    'NON-SCIENCE': {
+    'Non-Science': {
       "MANAGEMENT": 
       ["English General Paper", 
       "Accounting", 
@@ -110,14 +110,14 @@ export const courseDetails = {
       ],
     },
   },
-  CTEVT: {
-    HA: {
-      "HA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
-    },
-    GA: {
-      "GA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
-    },
-  },
+  // CTEVT: {
+  //   HA: {
+  //     "HA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
+  //   },
+  //   GA: {
+  //     "GA Subject list": ["English", "Nepali", "One", "Two", "Three", "Four"],
+  //   },
+  // },
 };
 
 export const boardLists = Object.keys(courseDetails);
