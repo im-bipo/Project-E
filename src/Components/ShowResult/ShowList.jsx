@@ -42,6 +42,7 @@ if (Object.keys(markSheet).length === 0){
   markSheet={markSheet}
   />
   </div>
+  <p className='text-center py-5'><i className='text-[red] font-medium '>DISCLAIMER: Test Project</i></p>
   
   </>
     )

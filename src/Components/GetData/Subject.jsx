@@ -25,14 +25,14 @@ const Subject = ({ boardName, name, changeHandler, value, isDisable }) => {
     <>
 
       <div className="mt-5 flex md:min-w-[20%] md:flex-row md:px-[3vw] md:py-2 ">
-        <label htmlFor={name} className="w-1/3 md:w-3/4">{name} : </label>
+        <label htmlFor={name} className="min-w-[60%] md:w-3/4">{name} : </label>
         <select
           disabled={isDisable}
           onChange={change}
           name={name}
           value={value}
           required
-          className="bg-[unset] border-gray-800 border-b-2 focus:outline-none w-2/3 md:w-[8rem]"
+          className="bg-[unset] border-gray-800 border-b-2 focus:outline-none w-1/3 md:w-[8rem]"
         >
           <option value="" disabled>
             Select Grade
