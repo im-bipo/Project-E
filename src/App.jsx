@@ -65,8 +65,8 @@ const App = () => {
       SetEligibleList={SetEligibleList}
       
       />
-      <footer className="bg-gray-800 text-white font-extrabold text-[10rem] text-center p-5">
-        <a href="https:bipinkhatri.com.np">
+      <footer className="bg-gray-800 text-white text-center p-5">
+        <a href="https://bipinkhatri.com.np">
         developed by &lt;t h e f o o l i s h d e v e l o p e r &gt; 
         </a>
       </footer>
